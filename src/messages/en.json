@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "siteName": "Agakiza",
+    "tagline": "The message that saves",
+    "description": "Agakiza is an evangelism ministry in Kigali, Rwanda, sharing God's word and supporting families through counselling and advisory."
+  },
+  "nav": {
+    "home": "Home",
+    "whatWeDo": "What we do",
+    "training": "Training",
+    "family": "Family",
+    "innerHealing": "Inner healing",
+    "news": "News",
+    "about": "About us",
+    "give": "Support the ministry",
+    "menu": "Menu",
+    "language": "Language",
+    "evangelism": "Evangelism",
+    "testimonies": "Testimonies",
+    "conferences": "Conferences and crusades",
+    "youth": "Youth",
+    "engaged": "Engaged couples",
+    "women": "Women",
+    "men": "Men",
+    "familyTherapy": "Family therapy",
+    "beliefs": "What we believe",
+    "contact": "Contact us",
+    "partners": "Partners",
+    "events": "Events",
+    "book": "Book a session"
+  },
+  "home": {
+    "heroText": "Sharing God's word, and walking with people and families through counselling and care.",
+    "explore": "See what we do",
+    "verseTitle": "Verse of the day",
+    "storiesEmpty": "New stories are coming soon.",
+    "viewAll": "See all",
+    "helpTitle": "Need someone to talk to?",
+    "helpText": "Book a family therapy or advisory session.",
+    "eventsEmpty": "No upcoming events right now.",
+    "giveText": "Your gift helps carry the gospel to more people."
+  },
+  "newsletter": {
+    "title": "Subscribe to our messages",
+    "text": "Receive messages and news from us by email.",
+    "name": "Names",
+    "email": "Email",
+    "submit": "Subscribe",
+    "success": "Thank you! You're subscribed.",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "followUs": "Follow us",
+    "rights": "All rights reserved.",
+    "official": "Our only official website is agakiza.rw"
+  },
+  "whatsapp": {
+    "label": "Chat with us on WhatsApp",
+    "greeting": "Hello, I'd like to ask..."
+  },
+  "page": {
+    "comingSoon": "This page is being prepared. Please check back soon."
+  }
+}
