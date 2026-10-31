@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { Link } from '@/i18n/navigation'
 import { getPayloadClient } from '@/lib/payload'
+import { type DailyVerse, fallbackVerse, getVerseOfTheDay } from '@/lib/verseOfTheDay'
 import type { Event, Media, Story } from '@/payload-types'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -10,10 +11,12 @@ type Props = { params: Promise<{ locale: string }> }
 // Content comes from the CMS, so render on request.
 export const dynamic = 'force-dynamic'
 
-async function getHomeContent(locale: 'rw' | 'en'): Promise<{ stories: Story[]; events: Event[] }> {
+async function getHomeContent(
+  locale: 'rw' | 'en',
+): Promise<{ stories: Story[]; events: Event[]; verse: DailyVerse }> {
   try {
     const payload = await getPayloadClient()
-    const [stories, events] = await Promise.all([
+    const [stories, events, verse] = await Promise.all([
       payload.find({
         collection: 'stories',
         locale,
@@ -28,10 +31,11 @@ async function getHomeContent(locale: 'rw' | 'en'): Promise<{ stories: Story[]; 
         sort: 'startsAt',
         where: { _status: { equals: 'published' }, startsAt: { greater_than: new Date().toISOString() } },
       }),
+      getVerseOfTheDay(payload, locale),
     ])
-    return { stories: stories.docs, events: events.docs }
+    return { stories: stories.docs, events: events.docs, verse }
   } catch {
-    return { stories: [], events: [] }
+    return { stories: [], events: [], verse: fallbackVerse }
   }
 }
 
@@ -57,7 +61,7 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale)
   const t = await getTranslations('home')
   const tNav = await getTranslations('nav')
-  const { stories, events } = await getHomeContent(locale as 'rw' | 'en')
+  const { stories, events, verse } = await getHomeContent(locale as 'rw' | 'en')
   const dateFormat = new Intl.DateTimeFormat(locale === 'rw' ? 'rw-RW' : 'en-GB', { dateStyle: 'long' })
 
   return (
@@ -79,18 +83,15 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
 
-        {/* Verse of the day, set like a page with a bookmark ribbon. The verse queue in the admin replaces this placeholder. */}
+        {/* Verse of the day, set like a page with a bookmark ribbon. Changes at 00:00 CAT; see lib/verseOfTheDay. */}
         <figure className="relative rounded-2xl border border-line bg-card px-8 pt-12 pb-10 shadow-[0_8px_24px_rgba(0,0,0,0.06)] md:px-10 md:pt-14">
           <span
             aria-hidden="true"
             className="absolute -top-px right-10 h-16 w-4 bg-gold [clip-path:polygon(0_0,100%_0,100%_100%,50%_78%,0_100%)]"
           />
           <p className="text-sm text-muted">{t('verseTitle')}</p>
-          <blockquote className="mt-4 font-serif text-2xl leading-[1.4] md:text-[28px]">
-            Nawe Betelehemu ho mu gihugu cya Yuda, ni ukuri nturi mutoya mu midugudu ikomeye ya Yuda, kuko muri wowe ari
-            ho hazaturuka umutware, uzaragira ubwoko bwanjye bw&apos;Abisirayeli
-          </blockquote>
-          <figcaption className="mt-6 font-serif text-lg text-secondary">Matayo 2:6</figcaption>
+          <blockquote className="mt-4 font-serif text-2xl leading-[1.4] md:text-[28px]">{verse.text}</blockquote>
+          <figcaption className="mt-6 font-serif text-lg text-secondary">{verse.reference}</figcaption>
         </figure>
       </section>
 

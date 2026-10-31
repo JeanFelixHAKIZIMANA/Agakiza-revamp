@@ -73,6 +73,8 @@ export interface Config {
     bookings: Booking;
     messages: Message;
     subscribers: Subscriber;
+    verses: Verse;
+    'verse-schedule': VerseSchedule;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -88,6 +90,8 @@ export interface Config {
     bookings: BookingsSelect<false> | BookingsSelect<true>;
     messages: MessagesSelect<false> | MessagesSelect<true>;
     subscribers: SubscribersSelect<false> | SubscribersSelect<true>;
+    verses: VersesSelect<false> | VersesSelect<true>;
+    'verse-schedule': VerseScheduleSelect<false> | VerseScheduleSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -324,6 +328,46 @@ export interface Subscriber {
   createdAt: string;
 }
 /**
+ * Scriptures waiting to be shared. Each day at 00:00 CAT one is picked automatically, starting with those shown least recently.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "verses".
+ */
+export interface Verse {
+  id: number;
+  text: string;
+  /**
+   * Book, chapter and verse, for example Yohana 3:16.
+   */
+  reference: string;
+  /**
+   * Untick to keep the verse out of the automatic picks.
+   */
+  active?: boolean | null;
+  /**
+   * Last day (CAT) this verse was the verse of the day.
+   */
+  lastShownOn?: string | null;
+  timesShown?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Which verse appears on which day. Change an entry to override the automatic pick for that day.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "verse-schedule".
+ */
+export interface VerseSchedule {
+  id: number;
+  date: string;
+  day?: string | null;
+  verse: number | Verse;
+  source?: ('auto' | 'manual') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -398,6 +442,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'subscribers';
         value: number | Subscriber;
+      } | null)
+    | ({
+        relationTo: 'verses';
+        value: number | Verse;
+      } | null)
+    | ({
+        relationTo: 'verse-schedule';
+        value: number | VerseSchedule;
       } | null)
     | ({
         relationTo: 'media';
@@ -542,6 +594,31 @@ export interface SubscribersSelect<T extends boolean = true> {
   locale?: T;
   source?: T;
   consentAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "verses_select".
+ */
+export interface VersesSelect<T extends boolean = true> {
+  text?: T;
+  reference?: T;
+  active?: T;
+  lastShownOn?: T;
+  timesShown?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "verse-schedule_select".
+ */
+export interface VerseScheduleSelect<T extends boolean = true> {
+  date?: T;
+  day?: T;
+  verse?: T;
+  source?: T;
   updatedAt?: T;
   createdAt?: T;
 }
