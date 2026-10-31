@@ -71,5 +71,32 @@
     "previous": "Ibanziriza",
     "next": "Ikurikira",
     "photos": "Amafoto"
+  },
+  "forms": {
+    "names": "Amazina",
+    "phone": "Telefoni",
+    "email": "Email",
+    "attendants": "Umubare w'abazitabira",
+    "location": "Aho utuye",
+    "type": "Ubwoko bw'ibiganiro",
+    "preferredDate": "Igihe wifuza",
+    "note": "Icyo wifuza kutubwira (si ngombwa)",
+    "message": "Ubutumwa",
+    "consent": "Iyandikishe kwakira ubutumwa bwihariye",
+    "send": "Ohereza",
+    "sending": "Biroherezwa…",
+    "bookingIntro": "Uzuza ifishi, umushumba azakumenyesha niba igihe wahisemo gishoboka.",
+    "bookingSuccess": "Murakoze. Icyifuzo cyanyu cyakiriwe, tuzabamenyesha igisubizo vuba.",
+    "contactIntro": "Twandikire, tuzagusubiza vuba.",
+    "contactSuccess": "Murakoze. Ubutumwa bwanyu bwakiriwe.",
+    "registerSuccess": "Murakoze. Mwiyandikishije neza.",
+    "error": "Habaye ikibazo. Mwongere mugerageze.",
+    "invalid": "Reba neza ibyo wujuje.",
+    "full": "Imyanya yashize",
+    "closed": "Kwiyandikisha byafunzwe",
+    "venue": "Aho bizabera",
+    "when": "Igihe",
+    "map": "Reba ku ikarita",
+    "upcomingEmpty": "Nta gahunda iteganyijwe ubu."
   }
 }
