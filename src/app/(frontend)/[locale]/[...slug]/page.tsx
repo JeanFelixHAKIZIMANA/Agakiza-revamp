@@ -1,0 +1,40 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+
+import { knownPages } from '@/lib/navigation'
+import { alternates } from '@/lib/seo'
+
+type Props = { params: Promise<{ locale: string; slug: string[] }> }
+
+// Placeholder for pages in the navigation that aren't built yet, so no link
+// on the site is dead. Each real page replaces its entry with its own route.
+export function generateStaticParams() {
+  return Object.keys(knownPages).map((path) => ({ slug: path.slice(1).split('/') }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params
+  const path = `/${slug.join('/')}`
+  const key = knownPages[path]
+  if (!key) return {}
+  const t = await getTranslations({ locale, namespace: 'nav' })
+  return { title: t(key), alternates: alternates(locale, path), robots: { index: false } }
+}
+
+export default async function PlaceholderPage({ params }: Props) {
+  const { locale, slug } = await params
+  setRequestLocale(locale)
+  const key = knownPages[`/${slug.join('/')}`]
+  if (!key) notFound()
+
+  const t = await getTranslations('nav')
+  const tPage = await getTranslations('page')
+
+  return (
+    <section className="mx-auto max-w-3xl px-4 py-24 text-center">
+      <h1 className="text-3xl font-bold text-brand-dark">{t(key)}</h1>
+      <p className="mt-4 text-muted">{tPage('comingSoon')}</p>
+    </section>
+  )
+}

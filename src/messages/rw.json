@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "siteName": "Agakiza",
+    "tagline": "Ubutumwa bukiza",
+    "description": "Agakiza ni umurimo w'ivugabutumwa ugeza ijambo ry'Imana ku bantu, ukanafasha imiryango binyuze mu biganiro n'ubujyanama."
+  },
+  "nav": {
+    "home": "Ahabanza",
+    "whatWeDo": "Ibyo dukora",
+    "training": "Amahugurwa",
+    "family": "Umuryango",
+    "innerHealing": "Isanamitima",
+    "news": "Amakuru",
+    "about": "Abo turibo",
+    "give": "Fasha umurimo",
+    "menu": "Menu",
+    "language": "Ururimi",
+    "evangelism": "Ivugabutumwa",
+    "testimonies": "Ubuhamya",
+    "conferences": "Ibiterane",
+    "youth": "Urubyiruko",
+    "engaged": "Abitegura gushakana",
+    "women": "Abagore",
+    "men": "Abagabo",
+    "familyTherapy": "Ibiganiro by'umuryango",
+    "beliefs": "Ibyo twizera",
+    "contact": "Twandikire",
+    "partners": "Abafatanyabikorwa",
+    "events": "Gahunda ziteganyijwe",
+    "book": "Saba umwanya"
+  },
+  "home": {
+    "heroText": "Dusangiza abantu ijambo ry'Imana, tukanafasha imiryango mu buzima bw'umwuka n'ubw'umuryango.",
+    "explore": "Menya ibyo dukora",
+    "verseTitle": "Ijambo ry'umunsi",
+    "storiesEmpty": "Inkuru nshya ziraza vuba.",
+    "viewAll": "Reba byose",
+    "helpTitle": "Ukeneye ubufasha?",
+    "helpText": "Saba umwanya w'ibiganiro by'umuryango cyangwa ubujyanama.",
+    "eventsEmpty": "Nta gahunda iteganyijwe ubu.",
+    "giveText": "Inkunga yawe idufasha kugeza ubutumwa bwiza kuri benshi."
+  },
+  "newsletter": {
+    "title": "Iyandikishe kwakira ubutumwa bwihariye",
+    "text": "Uzajya wakira ubutumwa n'amakuru yacu kuri email.",
+    "name": "Amazina",
+    "email": "Email",
+    "submit": "Iyandikishe",
+    "success": "Murakoze! Mwiyandikishije neza.",
+    "error": "Habaye ikibazo. Mwongere mugerageze."
+  },
+  "footer": {
+    "followUs": "Dukurikire",
+    "rights": "Uburenganzira bwose burasigasiwe.",
+    "official": "Urubuga rwacu rwonyine rwizewe ni agakiza.rw"
+  },
+  "whatsapp": {
+    "label": "Tuvugishe kuri WhatsApp",
+    "greeting": "Muraho, nashakaga kubaza..."
+  },
+  "page": {
+    "comingSoon": "Iyi paji iri gutegurwa. Muzayisura vuba."
+  }
+}
