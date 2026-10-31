@@ -32,9 +32,9 @@ export default async function PlaceholderPage({ params }: Props) {
   const tPage = await getTranslations('page')
 
   return (
-    <section className="mx-auto max-w-3xl px-4 py-24 text-center">
-      <h1 className="text-3xl font-bold text-brand-dark">{t(key)}</h1>
-      <p className="mt-4 text-muted">{tPage('comingSoon')}</p>
+    <section className="mx-auto max-w-6xl px-4 py-24 md:px-8 md:py-32">
+      <h1 className="font-serif text-4xl leading-tight md:text-5xl">{t(key)}</h1>
+      <p className="mt-4 max-w-xl text-secondary">{tPage('comingSoon')}</p>
     </section>
   )
 }

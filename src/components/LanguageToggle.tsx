@@ -11,20 +11,22 @@ export function LanguageToggle() {
   const pathname = usePathname()
 
   return (
-    <div role="group" aria-label={t('language')} className="flex rounded-full border border-line p-0.5 text-xs font-semibold">
-      {routing.locales.map((code) => (
-        <Link
-          key={code}
-          href={pathname}
-          locale={code}
-          hrefLang={code}
-          aria-current={code === locale ? 'true' : undefined}
-          className={`rounded-full px-2.5 py-1 uppercase transition ${
-            code === locale ? 'bg-brand text-white' : 'text-muted hover:text-brand'
-          }`}
-        >
-          {code}
-        </Link>
+    <div role="group" aria-label={t('language')} className="flex h-9 items-center gap-1 text-sm">
+      {routing.locales.map((code, index) => (
+        <span key={code} className="flex items-center gap-1">
+          {index > 0 && <span className="text-muted" aria-hidden="true">/</span>}
+          <Link
+            href={pathname}
+            locale={code}
+            hrefLang={code}
+            aria-current={code === locale ? 'true' : undefined}
+            className={`px-1 transition-colors duration-150 ease-out ${
+              code === locale ? 'font-medium text-ink' : 'text-muted hover:text-ink'
+            }`}
+          >
+            {code.toUpperCase()}
+          </Link>
+        </span>
       ))}
     </div>
   )
