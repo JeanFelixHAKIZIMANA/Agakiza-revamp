@@ -1,17 +1,33 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/inter';
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource-variable/newsreader';
 
-/* Brand tokens. Exact hex values will be taken from the new logo files. */
+/*
+ * Direction: steady, warm, trustworthy. The world is an open Bible on a
+ * table in morning light, so neutrals are warm paper and the brand blue is
+ * the ink. Gold appears once per screen, as the bookmark ribbon on the verse.
+ * Exact brand hex values will be checked against the new logo files.
+ */
 @theme {
+  /* Warm paper neutrals */
+  --color-page: #f7f4ee;
+  --color-card: #fdfbf7;
+  --color-raised: #efe9df;
+  --color-ink: #1f1b16;
+  --color-secondary: #5e554a;
+  --color-muted: #7b7266;
+  --color-line: rgb(31 27 22 / 0.08);
+
+  /* Brand */
   --color-brand: #1d3f8f;
-  --color-brand-dark: #142c66;
-  --color-brand-light: #e8eefb;
-  --color-gold: #e3a92b;
-  --color-gold-dark: #b9851a;
-  --color-ink: #1b1f2a;
-  --color-muted: #5b6475;
-  --color-line: #e3e7ef;
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --color-brand-hover: #163274;
+  --color-brand-deep: #0f1f45;
+  --color-gold: #c9952b;
+
+  --font-sans: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Newsreader Variable', ui-serif, Georgia, serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
@@ -19,6 +35,11 @@ html {
 }
 
 body {
-  background: #fff;
+  background: var(--color-page);
   color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
 }

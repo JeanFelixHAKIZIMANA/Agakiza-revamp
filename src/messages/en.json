@@ -27,10 +27,13 @@
     "contact": "Contact us",
     "partners": "Partners",
     "events": "Events",
-    "book": "Book a session"
+    "book": "Book a session",
+    "register": "Register",
+    "advisory": "Advisory"
   },
   "home": {
-    "heroText": "Sharing God's word, and walking with people and families through counselling and care.",
+    "heroTitle": "Scripture for each day, and counsel for your family",
+    "heroText": "Agakiza is an evangelism ministry in Gatenga, Kigali. Read the verse of the day, follow our work, or book a family counselling session.",
     "explore": "See what we do",
     "verseTitle": "Verse of the day",
     "storiesEmpty": "New stories are coming soon.",

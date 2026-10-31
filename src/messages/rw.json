@@ -27,10 +27,13 @@
     "contact": "Twandikire",
     "partners": "Abafatanyabikorwa",
     "events": "Gahunda ziteganyijwe",
-    "book": "Saba umwanya"
+    "book": "Saba umwanya",
+    "register": "Iyandikishe",
+    "advisory": "Ubujyanama"
   },
   "home": {
-    "heroText": "Dusangiza abantu ijambo ry'Imana, tukanafasha imiryango mu buzima bw'umwuka n'ubw'umuryango.",
+    "heroTitle": "Ijambo ry'Imana rya buri munsi, n'inama ku muryango wawe",
+    "heroText": "Agakiza ni umurimo w'ivugabutumwa ukorera i Gatenga, Kigali. Soma ijambo ry'umunsi, menya ibyo dukora, cyangwa usabe umwanya w'ibiganiro by'umuryango.",
     "explore": "Menya ibyo dukora",
     "verseTitle": "Ijambo ry'umunsi",
     "storiesEmpty": "Inkuru nshya ziraza vuba.",
