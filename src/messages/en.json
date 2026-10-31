@@ -63,5 +63,13 @@
   },
   "page": {
     "comingSoon": "This page is being prepared. Please check back soon."
+  },
+  "stories": {
+    "intro": "Stories from Agakiza's work: evangelism, conferences, and time spent with families.",
+    "watchVideo": "Watch the video",
+    "allStories": "All stories",
+    "previous": "Previous",
+    "next": "Next",
+    "photos": "Photos"
   }
 }

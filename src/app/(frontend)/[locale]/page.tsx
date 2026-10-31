@@ -1,10 +1,11 @@
-import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
+import { StoryCard } from '@/components/StoryCard'
 import { Link } from '@/i18n/navigation'
+import { longDate } from '@/lib/format'
 import { getPayloadClient } from '@/lib/payload'
 import { type DailyVerse, fallbackVerse, getVerseOfTheDay } from '@/lib/verseOfTheDay'
-import type { Event, Media, Story } from '@/payload-types'
+import type { Event, Story } from '@/payload-types'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -62,7 +63,7 @@ export default async function HomePage({ params }: Props) {
   const t = await getTranslations('home')
   const tNav = await getTranslations('nav')
   const { stories, events, verse } = await getHomeContent(locale as 'rw' | 'en')
-  const dateFormat = new Intl.DateTimeFormat(locale === 'rw' ? 'rw-RW' : 'en-GB', { dateStyle: 'long' })
+  const dateFormat = longDate(locale)
 
   return (
     <>
@@ -103,39 +104,9 @@ export default async function HomePage({ params }: Props) {
             <p className="text-secondary">{t('storiesEmpty')}</p>
           ) : (
             <div className="grid gap-6 md:grid-cols-3">
-              {stories.map((story) => {
-                const cover = typeof story.cover === 'object' ? (story.cover as Media) : null
-                const image = cover?.sizes?.card?.url ?? cover?.url
-                return (
-                  <article key={story.id} className="group overflow-hidden rounded-2xl border border-line bg-card">
-                    {image && (
-                      <Image
-                        src={image}
-                        alt={cover?.alt ?? ''}
-                        width={800}
-                        height={600}
-                        className="aspect-[4/3] w-full object-cover"
-                      />
-                    )}
-                    <div className="p-6">
-                      <time className="text-sm text-muted tabular-nums" dateTime={story.publishedAt}>
-                        {dateFormat.format(new Date(story.publishedAt))}
-                      </time>
-                      <h3 className="mt-2 font-serif text-xl leading-snug">
-                        <Link
-                          href={`/ibyo-dukora/${story.slug}`}
-                          className="transition-colors duration-150 group-hover:text-brand"
-                        >
-                          {story.title}
-                        </Link>
-                      </h3>
-                      {story.excerpt && (
-                        <p className="mt-2 line-clamp-3 text-sm leading-5 text-secondary">{story.excerpt}</p>
-                      )}
-                    </div>
-                  </article>
-                )
-              })}
+              {stories.map((story) => (
+              <StoryCard key={story.id} story={story} dateFormat={dateFormat} />
+            ))}
             </div>
           )}
         </div>
