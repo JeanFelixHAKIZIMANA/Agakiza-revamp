@@ -14,6 +14,8 @@ import { Messages } from './collections/Messages'
 import { Stories } from './collections/Stories'
 import { Subscribers } from './collections/Subscribers'
 import { Users } from './collections/Users'
+import { Verses } from './collections/Verses'
+import { VerseSchedule } from './collections/VerseSchedule'
 import { SiteSettings } from './globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
@@ -26,7 +28,18 @@ export default buildConfig({
     importMap: { baseDir: path.resolve(dirname) },
     meta: { titleSuffix: ' · Agakiza admin' },
   },
-  collections: [Stories, Events, EventRegistrations, Bookings, Messages, Subscribers, Media, Users],
+  collections: [
+    Stories,
+    Events,
+    EventRegistrations,
+    Bookings,
+    Messages,
+    Subscribers,
+    Verses,
+    VerseSchedule,
+    Media,
+    Users,
+  ],
   globals: [SiteSettings],
   localization: {
     locales: [
