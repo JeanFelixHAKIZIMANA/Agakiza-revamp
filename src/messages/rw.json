@@ -63,5 +63,13 @@
   },
   "page": {
     "comingSoon": "Iyi paji iri gutegurwa. Muzayisura vuba."
+  },
+  "stories": {
+    "intro": "Inkuru z'ibikorwa by'umurimo wa Agakiza: ivugabutumwa, ibiterane, n'ibihe twagiranye n'imiryango.",
+    "watchVideo": "Reba video",
+    "allStories": "Inkuru zose",
+    "previous": "Ibanziriza",
+    "next": "Ikurikira",
+    "photos": "Amafoto"
   }
 }
