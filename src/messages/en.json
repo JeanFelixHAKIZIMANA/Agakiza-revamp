@@ -71,5 +71,32 @@
     "previous": "Previous",
     "next": "Next",
     "photos": "Photos"
+  },
+  "forms": {
+    "names": "Full names",
+    "phone": "Phone",
+    "email": "Email",
+    "attendants": "Number of attendants",
+    "location": "Where you live",
+    "type": "Type of session",
+    "preferredDate": "Preferred date",
+    "note": "Anything we should know (optional)",
+    "message": "Message",
+    "consent": "Subscribe to our messages",
+    "send": "Send",
+    "sending": "Sending…",
+    "bookingIntro": "Fill in the form and the pastor will let you know whether your chosen time works.",
+    "bookingSuccess": "Thank you. Your request has been received, and we'll let you know the answer soon.",
+    "contactIntro": "Write to us and we'll reply soon.",
+    "contactSuccess": "Thank you. Your message has been received.",
+    "registerSuccess": "Thank you. You're registered.",
+    "error": "Something went wrong. Please try again.",
+    "invalid": "Please check the highlighted fields.",
+    "full": "This event is full",
+    "closed": "Registration is closed",
+    "venue": "Venue",
+    "when": "When",
+    "map": "Open in maps",
+    "upcomingEmpty": "No upcoming events right now."
   }
 }
