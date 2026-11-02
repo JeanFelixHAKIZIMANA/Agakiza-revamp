@@ -8,9 +8,13 @@ import { alternates } from '@/lib/seo'
 type Props = { params: Promise<{ locale: string; slug: string[] }> }
 
 // Placeholder for pages in the navigation that aren't built yet, so no link
-// on the site is dead. Each real page replaces its entry with its own route.
+// on the site is dead. Each real page replaces its entry with its own route
+// and is listed in `builtPages`.
+const builtPages = new Set(['/ibyo-dukora'])
+const placeholderPages = Object.keys(knownPages).filter((path) => !builtPages.has(path))
+
 export function generateStaticParams() {
-  return Object.keys(knownPages).map((path) => ({ slug: path.slice(1).split('/') }))
+  return placeholderPages.map((path) => ({ slug: path.slice(1).split('/') }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

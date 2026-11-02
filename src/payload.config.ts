@@ -22,7 +22,8 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SITE_URL,
+  // No serverURL: media URLs stay relative (/api/media/file/...), so next/image
+  // serves them as local images in every environment.
   admin: {
     user: Users.slug,
     importMap: { baseDir: path.resolve(dirname) },

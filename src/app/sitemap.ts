@@ -15,7 +15,7 @@ const entry = (path: string, lastModified?: string): MetadataRoute.Sitemap[numbe
 })
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const entries = [entry('')]
+  const entries = [entry(''), entry('/ibyo-dukora')]
   try {
     const payload = await getPayloadClient()
     const stories = await payload.find({
