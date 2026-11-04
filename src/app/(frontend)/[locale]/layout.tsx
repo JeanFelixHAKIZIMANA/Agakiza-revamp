@@ -50,6 +50,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     '@type': 'Organization',
     name: t('siteName'),
     url: siteUrl,
+    logo: `${siteUrl}/brand/agakiza-logo.png`,
     email: settings?.email ?? undefined,
     telephone: settings?.phone ?? undefined,
     sameAs: settings?.socials?.map((social) => social.url) ?? [],
