@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 
 import { Link } from '@/i18n/navigation'
@@ -12,10 +13,12 @@ export async function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-page/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 md:px-8">
-        {/* Text wordmark until the new logo files arrive. */}
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-serif text-2xl leading-none font-medium text-brand">{tMeta('siteName')}</span>
-          <span className="hidden text-xs text-muted sm:inline">{tMeta('tagline')}</span>
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image src="/brand/agakiza-logo.png" alt="" width={44} height={44} priority className="size-11 shrink-0" />
+          <span className="flex items-baseline gap-2">
+            <span className="font-serif text-2xl leading-none font-medium text-brand">{tMeta('siteName')}</span>
+            <span className="hidden text-xs text-muted sm:inline">{tMeta('tagline')}</span>
+          </span>
         </Link>
 
         <nav aria-label="Main" className="hidden lg:block">

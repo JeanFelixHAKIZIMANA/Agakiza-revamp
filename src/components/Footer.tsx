@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 
 import { Link } from '@/i18n/navigation'
@@ -55,6 +56,10 @@ export async function Footer({ settings }: { settings: SiteSetting | null }) {
 
         <div className="grid gap-8 border-t border-white/10 pt-8 text-sm text-white/70 md:grid-cols-2">
           <address className="space-y-1 not-italic">
+            <p className="mb-4 flex items-center gap-3 text-white">
+              <Image src="/brand/agakiza-logo-tile.png" alt="" width={64} height={64} className="size-16 shrink-0" />
+              <span className="font-serif text-2xl">{tMeta('siteName')}</span>
+            </p>
             {settings?.address && <p>{settings.address}</p>}
             {settings?.phone && (
               <p>
